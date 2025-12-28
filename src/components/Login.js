@@ -3,14 +3,13 @@ import Header from "./Header"
 import { checkValidData } from "../utils/validate";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { USER_AVATAR } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);  
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const name = useRef(null);
@@ -37,13 +36,12 @@ const Login = () => {
           console.log("User signed up: ", user);
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://media.licdn.com/dms/image/v2/D5603AQGVrPp5_42VRw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1724682822684?e=1768435200&v=beta&t=FzseK-Cjg-UmHAWTC-myE_PTCCiWuNLFzYqriTnsnKU",
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               // Profile updated!
               const {uid, email, displayName, photoURL} = auth.currentUser;
               dispatch(addUser({uid: uid, email: email, displayName: displayName, photoURL: photoURL}));
-              navigate("/browse");
             })
             .catch((error) => {
               // An error occurred
@@ -64,7 +62,6 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           console.log("User signed in: ", user);
-          navigate('/browse');
           // ...
         })
         .catch((error) => {
