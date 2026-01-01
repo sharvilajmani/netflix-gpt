@@ -8,7 +8,7 @@ export const API_OPTIONS = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NTUzZDZhNDJkYmU5MTIwYTE0ZTM1NDUxMDY3YjY4ZSIsIm5iZiI6MTc2NjkyNjU2MS4xODcsInN1YiI6IjY5NTEyOGUxNzYwMWE1MzE4Mzg4ZGJjNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Y50EucatzxETjHvwSaMZUCcPzrSWMqhtoAZHTL6jAG4'
+    Authorization: 'Bearer ' + process.env.REACT_APP_TMDB_KEY,
   }
 };
 
@@ -22,5 +22,5 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "spanish", name: "Spanish" },
 ];
 
-//OpenAI API Key
-export const GEMINI_API_KEY = "AIzaSyC4HgxJ61WYsjBrOISG1PqbmuVZjHw33k0";
+//Gemini API Key
+export const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY;
