@@ -38,6 +38,7 @@
 - GPT Search Feature
 - GPT Search bar
 - Multi-language feature in our app
+- Integrated Gemini APIs
 
 # Features
 - Login/Sign up

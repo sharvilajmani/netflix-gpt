@@ -21,3 +21,6 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "hindi", name: "Hindi" },
   { identifier: "spanish", name: "Spanish" },
 ];
+
+//OpenAI API Key
+export const GEMINI_API_KEY = "AIzaSyC4HgxJ61WYsjBrOISG1PqbmuVZjHw33k0";
